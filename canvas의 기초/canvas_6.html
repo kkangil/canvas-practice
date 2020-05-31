@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <title>Canvas 01</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <canvas id="myCanvas" width="400" height="300">CANVAS를 지원하지 않습니다.</canvas>
+        <script>
+            var canvas = document.getElementById('myCanvas');
+            var ctx = canvas.getContext('2d');
+            ctx.fillText('The fillText() method draws filled text on the canvas.', 50, 100);
+            ctx.fillText('The fillText() method draws filled text on the canvas.', 50, 120, 100);
+            ctx.fillText('The fillText() method draws filled text on the canvas.', 50, 140, 200);
+            ctx.fillText('The fillText() method draws filled text on the canvas.', 50, 160, 300);
+        </script>
+    </body>
+</html>

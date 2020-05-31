@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <title>Canvas 01</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <canvas id="myCanvas" width="400" height="300">CANVAS를 지원하지 않습니다.</canvas>
+        <script>
+            var canvas = document.getElementById('myCanvas');
+            var ctx = canvas.getContext('2d');
+            ctx.fillStyle = '#6495ED';
+            ctx.font = 'italic bold 28px Arial, sans-serif';
+            ctx.fillText("Hello Canvas World!", 50, 100);
+        </script>
+    </body>
+</html>

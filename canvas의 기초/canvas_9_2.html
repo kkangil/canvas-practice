@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <title>Canvas 01</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <canvas id="myCanvas" width="400" height="300">CANVAS를 지원하지 않습니다.</canvas>
+        <script>
+            var canvas = document.getElementById('myCanvas');
+            var ctx = canvas.getContext('2d');
+            var img = new Image();
+            img.src = 'images/duck.jpg';
+            img.onload = function() {
+                draw();
+            };
+
+            function draw() {
+                ctx.drawImage(img, 0, 0);
+                var src = ctx.getImageData(0, 0, 100, 100);
+                console.log(src);
+                var data = src.data;
+                var numPixels = data.length;
+
+                for (var i=0; i < numPixels; i += 4) {
+                    data[i] = 255 - data[i]; // red
+                    data[i + 1] = 255 - data[i + 1]; // green
+                    data[i + 2] = 255 - data[i + 2]; // blue
+                }
+
+                ctx.putImageData(src, 200, 50);
+                ctx.strokeRect(0, 0, 100, 100);
+                ctx.strokeRect(200, 50, 100, 100);
+            }
+        </script>
+    </body>
+</html>
