@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>Canvas 01</title>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+<canvas id="myCanvas" width="400" height="300">CANVAS를 지원하지 않습니다.</canvas>
+<script>
+    var canvas = document.getElementById('myCanvas');
+    var ctx = canvas.getContext('2d');
+    var buildings = [
+        {id: "Airport", x: 50, y:50, w:64, h:64, sx:0, sy:0},
+        {id: "Bank", x: 150, y:50, w:64, h:64, sx:100, sy:0},
+        {id: "CarRepair", x: 250, y:50, w:64, h:64, sx:200, sy:0},
+        {id: "GasStation", x: 50, y:150, w:64, h:64, sx:300, sy:0},
+        {id: "Hospital", x: 150, y:150, w:64, h:64, sx:400, sy:0},
+        {id: "Temple", x: 250, y:150, w:64, h:64, sx:500, sy:0},
+    ];
+
+    var buildingImage = new Image();
+    buildingImage.src = 'images/buildings.png';
+
+    buildingImage.onload = function () {
+        for (var i = 0; i < buildings.length; i++) {
+            var b = buildings[i];
+            ctx.drawImage(buildingImage, b.sx, b.sy, b.w, b.h, b.x, b.y, b.w, b.h);
+        }
+    }
+</script>
+</body>
+</html>
